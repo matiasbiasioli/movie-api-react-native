@@ -2,11 +2,11 @@ import { View, Text, Dimensions, useWindowDimensions } from "react-native";
 import React, { useRef } from "react";
 import Carousel, { ICarouselInstance } from "react-native-reanimated-carousel";
 import { nowPlayingActions } from "@/core/actions/movies/now-playing.actions";
-import { movies } from "@/infrastructure/interfaces/movies-interface";
+import { Movies } from "@/infrastructure/interfaces/movies-interface";
 import MainPosterMovies from "./MainPosterMovies";
 
 interface Props {
-  movies: movies[];
+  movies: Movies[];
 }
 
 const MainSlideShow = ({ movies }: Props) => {
@@ -14,7 +14,7 @@ const MainSlideShow = ({ movies }: Props) => {
   const width = useWindowDimensions().width;
     // const width = Dimensions.get("window").width;
   return (
-    <View>
+    <View className="ml-4">
       <Carousel
         ref={ref}
         // loop

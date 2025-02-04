@@ -9,7 +9,6 @@ import React from "react";
 import useMovies from "@/presentation/hooks/useMovies";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import MainSlideShow from "@/presentation/components/MainSlideShow";
-import PopularPosterMovies from "@/presentation/components/HorizontalPosterMovies";
 import HorizontalPosterMovies from "@/presentation/components/HorizontalPosterMovies";
 
 const HomeScreen = () => {
@@ -20,6 +19,7 @@ const HomeScreen = () => {
   if (nowPlayingQuery.isLoading) {
     return (
       <View className="flex-1 justify-center items-center">
+        <Text>Loading...</Text>
         <ActivityIndicator size="large" color="#00ff00" />
       </View>
     );
@@ -27,14 +27,14 @@ const HomeScreen = () => {
   //Retorno
   return (
     <ScrollView className="mt-2 mb-4" style={{ flex: 1, paddingTop: safeArea.top }}>
-      <Text className="justify-center font-bold text-3xl px-2 mb-4">
+      <Text className="justify-center font-bold text-3xl px-2 ml-4 mb-4">
         Movies App
       </Text>
       {/* Now Plaiyng movies */}
       <View>
         <MainSlideShow movies={nowPlayingQuery.data ?? []} />
       </View>
-      {/* Popular Movies Horizontal */}
+      {/* Horizontal Movies component */}
       <View>
         <HorizontalPosterMovies title="Populares" movies={popularQuery.data ?? []} />
       </View>

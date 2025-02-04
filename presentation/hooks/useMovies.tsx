@@ -25,12 +25,11 @@ const useMovies = () => {
     queryFn: upcomingAction,
     staleTime: 1000 * 60 * 60 * 24,
   });
-
   return {
     nowPlayingQuery,
     popularQuery,
     topRatedQuery,
-    upcomingQuery
+    upcomingQuery,
   };
 };
 
